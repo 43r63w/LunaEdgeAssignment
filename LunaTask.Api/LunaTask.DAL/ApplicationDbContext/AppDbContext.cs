@@ -10,7 +10,7 @@ namespace LunaTask.DAL.ApplicationDbContext
 
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<LunaTask.DAL.Entities.Task> Tasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

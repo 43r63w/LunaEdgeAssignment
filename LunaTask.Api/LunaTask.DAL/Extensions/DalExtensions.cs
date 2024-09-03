@@ -4,11 +4,6 @@ using LunaTask.DAL.IGenericRepository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LunaTask.DAL.Extensions
 {
@@ -27,7 +22,5 @@ namespace LunaTask.DAL.Extensions
         {
             return services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         }
-
-
     }
 }
