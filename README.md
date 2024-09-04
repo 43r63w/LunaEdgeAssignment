@@ -31,7 +31,7 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the repository
 
 ```sh
-git clone https://github.com/your-repo/lunatask.api.git
+git clone https://github.com/LunaEdgeAssignment/lunatask.api.git
 cd lunatask.api
 ```
 ### 2. Set up the database
