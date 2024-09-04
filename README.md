@@ -24,7 +24,7 @@ Before you begin, ensure you have the following installed:
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [Docker](https://www.docker.com/)
-- [PostgreSQL](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+- [PostgreSQL](https://www.postgresql.org/download/)
 
 ## Getting Started
 
