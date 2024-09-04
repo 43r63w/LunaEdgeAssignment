@@ -1,7 +1,6 @@
 ﻿using LunaTask.DAL.ApplicationDbContext;
 using LunaTask.DAL.IGenericRepository.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Linq.Expressions;
 
 namespace LunaTask.DAL.IGenericRepository
@@ -50,7 +49,7 @@ namespace LunaTask.DAL.IGenericRepository
                 }
             }
 
-            return await query.ToListAsync();
+            return await query.AsNoTracking().ToListAsync();
         }
 
         public async Task<T> GetAsync(Expression<Func<T, bool>>? filter = null,

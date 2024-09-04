@@ -2,6 +2,7 @@
 using LunaTask.BLL.IServices;
 using LunaTask.BLL.Jwt;
 using LunaTask.BLL.Jwt.Interfaces;
+using LunaTask.BLL.Mapper;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace LunaTask.BLL.Extensions
@@ -13,10 +14,15 @@ namespace LunaTask.BLL.Extensions
             return services.AddScoped<IJwtGenerator, JwtGenerator>();
         }
 
-
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            return services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ITaskService, TaskService>();
+            return services;
+        }
+        public static IServiceCollection AddMapper(this IServiceCollection services)
+        {
+            return services.AddAutoMapper(typeof(MapperProfile));
         }
 
     }

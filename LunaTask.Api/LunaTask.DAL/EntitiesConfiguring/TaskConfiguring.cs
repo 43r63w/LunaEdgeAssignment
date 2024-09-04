@@ -18,6 +18,12 @@ namespace LunaTask.DAL.EntitiesConfiguring
 
             entity.Property(x => x.Title).IsRequired();
 
+            entity.Property(e => e.Status)
+                .HasConversion<string>();
+
+            entity.Property(e => e.Priority)
+                .HasConversion<string>();
+
             entity.HasOne<User>(x => x.User)
                   .WithMany(x => x.Tasks)
                   .HasForeignKey(x => x.UserId)

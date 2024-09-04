@@ -22,7 +22,7 @@ namespace LunaTask.Api.Controllers
         [HttpPost("/register")]
         public async Task<ActionResult> Register(UserCreateDto userCreateDto)
         {
-            var result = await _userService.Register(userCreateDto);
+            var result = await _userService.RegisterAsync(userCreateDto);
 
             if (result.IsSuccsed)
                 return Ok(result);
@@ -33,16 +33,13 @@ namespace LunaTask.Api.Controllers
         [HttpPost("/login")]
         public async Task<ActionResult> Login(UserLoginDto userLoginDto)
         {
-
-            var result = await _userService.Login(userLoginDto);
-
+            var result = await _userService.LoginAsync(userLoginDto);
 
             if (result.IsSuccsed)
             {
                 _contextAccessor.HttpContext.Response.Cookies.Append("Token", result.Data.ToString());
                 return Ok(result);
             }
-
 
             return BadRequest(result.Message);
         }
