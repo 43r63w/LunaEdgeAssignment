@@ -60,6 +60,14 @@ docker-compose up --build
 ```
 This will set up the API and any other dependencies defined in the `docker-compose` file.
 
+after the command `docker-compose`
+after the command you can open the api documentation by URL
+
+```sh
+http://localhost:1111/swagger/index.html
+https://localhost:7777/swagger/index.html
+```
+
 ### 5.API Documentation
 This project uses Swagger for API documentation. After running the project, you can view the API documentation at:
 
