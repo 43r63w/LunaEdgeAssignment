@@ -2,8 +2,10 @@
 using LunaTask.BLL.Implementations;
 using LunaTask.BLL.Jwt.Interfaces;
 using LunaTask.DAL.Entities;
+using LunaTask.DAL.GenericRepository.Interfaces;
 using LunaTask.DAL.IGenericRepository.Interfaces;
 using LunaTask.XUnitTest.Data;
+using Microsoft.AspNetCore.Identity;
 using Moq;
 using System.Linq.Expressions;
 using Task = System.Threading.Tasks.Task;
@@ -13,13 +15,13 @@ namespace LunaTask.XUnitTest.System.Services
 
     public class UserServiceTest
     {
-        private readonly Mock<IGenericRepository<User>> _userMockRepository;
+        private readonly Mock<IUserRepository> _userMockRepository;
         private readonly Mock<IJwtGenerator> _jwtGeneratorMock;
         private readonly UserService _userService;
 
         public UserServiceTest()
         {
-            _userMockRepository = new Mock<IGenericRepository<User>>();
+            _userMockRepository = new Mock<IUserRepository>();
             _jwtGeneratorMock = new Mock<IJwtGenerator>();
             _userService = new UserService(_userMockRepository.Object, _jwtGeneratorMock.Object);
         }
@@ -34,7 +36,7 @@ namespace LunaTask.XUnitTest.System.Services
             _jwtGeneratorMock.Setup(service => service.GenerateToken(It.IsAny<User>()))
                 .Returns(MockUserData.MockToken);
 
-            var result = await _userService.Login(MockUserData.UserLoginDto);
+            var result = await _userService.LoginAsync(MockUserData.UserLoginDto);
 
             result.Should().NotBeNull();
             result.Should().Be(MockUserData.ResponseDto);

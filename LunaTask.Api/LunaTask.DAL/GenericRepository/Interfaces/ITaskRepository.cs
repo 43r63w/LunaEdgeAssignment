@@ -6,7 +6,9 @@ namespace LunaTask.DAL.IGenericRepository.Interfaces
     {
         Task<List<Entities.Task>> SortAsync(
             Expression<Func<Entities.Task, object>> selectorKey,
-            string sort = "desc"
+            int pageNumber,
+            int pageSize,
+            string sort
         );
     }
 

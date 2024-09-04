@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LunaTask.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     [Authorize]
     public class TaskController : ControllerBase
@@ -44,7 +44,7 @@ namespace LunaTask.Api.Controllers
         public async Task<ActionResult> Put(string id, TaskUpdateDto taskUpdateDto)
         {
             var result = await _taskService.UpdateTaskAsync(id, taskUpdateDto);
-            return Ok();
+            return Ok(result);
         }
 
         [HttpDelete("/task/{id}")]

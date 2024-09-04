@@ -41,7 +41,7 @@ namespace LunaTask.BLL.Implementations
             if (result == null)
                 return new ResponseDto(false, "Something wrong");
 
-            return new ResponseDto(true, "Successfully login", result);
+            return new ResponseDto(true, $"Successfully login, Id:{userFromDb.Id}", result);
 
 
         }

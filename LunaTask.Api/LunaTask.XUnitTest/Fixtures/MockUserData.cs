@@ -8,7 +8,7 @@ namespace LunaTask.XUnitTest.Data
     public class MockUserData
     {
 
-        public readonly static ResponseDto ResponseDto = new ResponseDto(true, "Successfully login", "Token");
+        public readonly static ResponseDto ResponseDto = new ResponseDto(true, "Successfully login, Id:3cce29ea-76f5-4bd2-aadb-3686db2b9fc3", "Token");
 
 
         public readonly static string MockToken = "Token";
