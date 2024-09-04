@@ -67,4 +67,16 @@ This project uses Swagger for API documentation. After running the project, you 
 https://localhost:5001/swagger/index.html
 ```
 
+![image](https://github.com/user-attachments/assets/6bc04a29-12b4-4966-ae6e-8d77f3e7c432)
+- `SortColumn`: answers by which column to sort. In total, you can sort by
+date
+status
+priority
+by default, sorts by the title column
+
+-  `PageNumber & PageSize`: needed for pagination
+
+-  `SortBy`: You can sort in descending or ascending order 
+
+
   
