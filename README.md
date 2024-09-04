@@ -32,8 +32,7 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the repository
 
 ```sh
-gh repo clone 43r63w/LunaEdgeAssignment
-cd lunatask.api
+git clone https://github.com/43r63w/LunaEdgeAssignment
 ```
 
 ### 2. Run the API
