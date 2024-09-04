@@ -47,6 +47,11 @@ The API will be available at `https://localhost:5001`
 ### 3.Docker Support
 The solution includes Docker support with a docker-compose file. You can build and run the entire solution using Docker:
 
+
+![image](https://github.com/user-attachments/assets/8d92d604-997f-4125-921f-c41e8f4dc5f2)
+In order to open the application in docker you need to change the connection string to `DockerPostgreSQL`
+
+
 ```sh
 docker-compose up --build
 ```
@@ -63,10 +68,6 @@ https://localhost:7777/swagger/index.html
 In order to use the endpoints of the tasks
 In order to use endpoints of tasks, you must first register and login 
 
-
-
-
-### 5.API Documentation
 This project uses Swagger for API documentation. After running the project, you can view the API documentation at:
 ![image](https://github.com/user-attachments/assets/a9a5eece-6e94-4769-9f85-9a2b52a5b545)
 
@@ -77,6 +78,7 @@ Then you can create tasks and edit
 
 
 
+### 5.API Documentation
 
 ```sh
 https://localhost:5001/swagger/index.html
