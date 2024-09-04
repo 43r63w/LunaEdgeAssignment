@@ -1,5 +1,4 @@
-# LunaEdgeAssignment
- This repository accommodates for the test task from LunaEdge
+
 
 
  # LunaTask.Api
@@ -31,7 +30,7 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the repository
 
 ```sh
-git clone https://github.com/LunaEdgeAssignment/lunatask.api.git
+gh repo clone 43r63w/LunaEdgeAssignment
 cd lunatask.api
 ```
 ### 2. Set up the database
