@@ -37,8 +37,7 @@ cd lunatask.api
 ### 2. Set up the database
 Ensure you have a SQL Server instance running, either locally or using Docker:
 
-# If 
-Migrations need to be written manually, they are automatically accepted when the application is launched.
+## Migrations need to be written manually, they are automatically accepted when the application is launched.
 
 ```sh
 docker run --name postgres_container -e POSTGRES_USER=myuser -e POSTGRES_PASSWORD=mypassword -e POSTGRES_DB=mydatabase -p 5432:5432 -d postgres:latest
