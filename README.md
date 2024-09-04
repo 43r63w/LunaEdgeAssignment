@@ -42,5 +42,10 @@ docker run --name postgres_container -e POSTGRES_USER=myuser -e POSTGRES_PASSWOR
 ```
 Update the connection strings in `appsettings.json` in the LunaTask.Api project.
 
+### 3. Apply Migrations
+Navigate to the `LunaTask.DAL` project and apply migrations to the database:
 
+```sh
+dotnet ef database update --project LunaTask.DAL
+```
   
