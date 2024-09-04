@@ -10,20 +10,30 @@ namespace LunaTask.DAL.IGenericRepository
     {
         public TaskRepository(AppDbContext dbContext)
             : base(dbContext)
-        {}
+        { }
 
-       
-        public async Task<List<Entities.Task>> SortAsync(Expression<Func<Entities.Task, object>> selectorKey, string sort = "desc")
+
+        public async Task<List<Entities.Task>> SortAsync(
+            Expression<Func<Entities.Task, object>> selectorKey,
+            int pageNumber,
+            int pageSize,
+            string sort
+           )
         {
             IQueryable<Entities.Task> query = _dbSet;
+
+            query = query.Skip((pageNumber - 1) * pageSize)
+                         .Take(pageSize);
 
             query = sort == "desc"
                 ? query.OrderByDescending(selectorKey)
                 : query.OrderBy(selectorKey);
 
+
+
             return await query.ToListAsync();
         }
 
-      
+
     }
 }

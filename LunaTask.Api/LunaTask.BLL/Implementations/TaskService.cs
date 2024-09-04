@@ -46,17 +46,24 @@ namespace LunaTask.BLL.Implementations
         public async Task<IEnumerable<TaskDto>> GetTasksAsync(GetTaskRequest getTaskRequest)
         {
 
-            Expression<Func<DAL.Entities.Task, object>> selectorKey = getTaskRequest.SortItem switch
+            Expression<Func<DAL.Entities.Task, object>> selectorKey = getTaskRequest.SortColumn switch
             {
                 "date" => note => note.DueDate,
                 "status" => note => note.Status,
                 "priority" => note => note.Priority,
-                _ => note => note.Id,
+                _ => note => note.Title,
             };
 
-            var tasks = await _taskRepository.SortAsync(selectorKey);
+            var tasks = await _taskRepository.SortAsync(selectorKey,
+                getTaskRequest.PageNumber,
+                getTaskRequest.PageSize,
+                getTaskRequest.SortBy
+            );
+
+
 
             var taskDto = tasks.Select(e => new TaskDto(
+                 e.Id.ToString(),
                  e.Title,
                  e.Description,
                  e.DueDate,
@@ -79,12 +86,14 @@ namespace LunaTask.BLL.Implementations
 
             var userDto = _mapper.Map<UserDto>(getTaskFromDb.User);
 
-            var taskDto = new TaskDto(getTaskFromDb.Title,
+            var taskDto = new TaskDto(
+                getTaskFromDb.Id.ToString(),
+                getTaskFromDb.Title,
                 getTaskFromDb.Description,
                 getTaskFromDb.DueDate,
                 getTaskFromDb.Status,
                 getTaskFromDb.Priority,
-                getTaskFromDb.UserId.ToString() 
+                getTaskFromDb.UserId.ToString()
             );
 
             return taskDto;
@@ -126,9 +135,6 @@ namespace LunaTask.BLL.Implementations
 
             return new ResponseDto(true, "Task deleted");
         }
-
-
-
 
     }
 }

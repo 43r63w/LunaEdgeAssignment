@@ -13,16 +13,17 @@ namespace LunaTask.DAL.Extensions
     {
         public static IServiceCollection AddDb(this IServiceCollection services, IConfiguration configuration)
         {
+
             return services.AddDbContext<AppDbContext>(options =>
-                {
-                    options.UseNpgsql(configuration.GetConnectionString("DefaultDbConnection"));
-                }
-            );
+            {
+                options.UseNpgsql(configuration.GetConnectionString("DefaultDbConnection"));
+            });
+
         }
 
         public static IServiceCollection AddRepository(this IServiceCollection services)
         {
-  
+
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITaskRepository, TaskRepository>();
 
