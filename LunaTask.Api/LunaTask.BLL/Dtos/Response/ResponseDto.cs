@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace LunaTask.BLL.Dtos.Response
 {
-    public record ResponseDto(bool IsSuccsed,string Message,object? Data = null);
+
+
+    public record ResponseDto(
+        bool IsSuccsed,
+        string Message,
+        object? Data = null
+    );
+
     
 }

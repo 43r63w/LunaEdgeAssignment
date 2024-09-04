@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LunaTask.BLL.Dtos;
+using LunaTask.BLL.Dtos.Request;
 using LunaTask.BLL.Dtos.Response;
 using LunaTask.BLL.Dtos.Task;
 using LunaTask.BLL.Dtos.User;
@@ -13,13 +13,11 @@ namespace LunaTask.BLL.Implementations
     public class TaskService : ITaskService
     {
         private readonly ITaskRepository _taskRepository;
-        private readonly IMapper _mapper;
-
-        public TaskService(ITaskRepository taskRepository,
-            IMapper mapper)
+        
+        public TaskService(ITaskRepository taskRepository)          
         {
             _taskRepository = taskRepository;
-            _mapper = mapper;
+           
         }
 
         public async Task<ResponseDto> CreateTaskAsync(TaskCreateDto taskCreateDto)
@@ -60,8 +58,6 @@ namespace LunaTask.BLL.Implementations
                 getTaskRequest.SortBy
             );
 
-
-
             var taskDto = tasks.Select(e => new TaskDto(
                  e.Id.ToString(),
                  e.Title,
@@ -83,8 +79,7 @@ namespace LunaTask.BLL.Implementations
 
             if (getTaskFromDb == null)
                 throw new InvalidOperationException("Task not found in the database.");
-
-            var userDto = _mapper.Map<UserDto>(getTaskFromDb.User);
+          
 
             var taskDto = new TaskDto(
                 getTaskFromDb.Id.ToString(),
@@ -120,7 +115,7 @@ namespace LunaTask.BLL.Implementations
 
             await _taskRepository.SaveChangesAsync();
 
-            return new ResponseDto(true, "Task updated successfully");
+            return new ResponseDto(true, "Task updated successfully", taskFromDb);
         }
 
         public async Task<ResponseDto> DeleteTaskAsync(string taskId)

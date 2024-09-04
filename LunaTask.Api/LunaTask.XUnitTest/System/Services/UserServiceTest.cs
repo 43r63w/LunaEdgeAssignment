@@ -43,6 +43,10 @@ namespace LunaTask.XUnitTest.System.Services
 
             _jwtGeneratorMock.Verify(fn => fn.GenerateToken(It.IsAny<User>()), Times.Once);
         }
+
+
+
+
     }
 
 

@@ -9,7 +9,7 @@ namespace LunaTask.Api
 {
     public class Program
     {
-        public static  void Main(string[] args)
+        public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -25,9 +25,9 @@ namespace LunaTask.Api
             builder.Services.AddDb(builder.Configuration);
             builder.Services.AddRepository();
 
-            builder.Services.AddMapper();
+        
             builder.Services.AddHttpContextAccessor();
-           
+
 
 
             builder.Services.AddAuthentication(options =>
@@ -57,6 +57,8 @@ namespace LunaTask.Api
             });
 
 
+
+
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())
@@ -64,6 +66,8 @@ namespace LunaTask.Api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+      
 
             app.Services.InitDb();
             app.UseHttpsRedirection();
