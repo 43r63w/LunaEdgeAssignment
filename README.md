@@ -11,6 +11,8 @@ LunaTask.Api is a project that provides a RESTful API for task management. It in
 
 The solution consists of the following projects:
 
+The application is a monolith split into n-layer arichetecture
+
 - **LunaTask.Api**: The main API project.
 - **LunaTask.BLL**: The business logic layer.
 - **LunaTask.DAL**: The data access layer.
@@ -33,17 +35,8 @@ Before you begin, ensure you have the following installed:
 gh repo clone 43r63w/LunaEdgeAssignment
 cd lunatask.api
 ```
-### 2. Set up the database
-Ensure you have a SQL Server instance running, either locally or using Docker:
 
-## Migrations need to be written manually, they are automatically accepted when the application is launched.
-
-```sh
-docker run --name postgres_container -e POSTGRES_USER=myuser -e POSTGRES_PASSWORD=mypassword -e POSTGRES_DB=mydatabase -p 5432:5432 -d postgres:latest
-```
-Update the connection strings in `appsettings.json` in the LunaTask.Api project.
-
-### 3. Run the API
+### 2. Run the API
 You can now run the API:
 
 ```sh
@@ -51,7 +44,7 @@ dotnet run --project LunaTask.Api
 ```
 The API will be available at `https://localhost:5001`
 
-### 4.Docker Support
+### 3.Docker Support
 The solution includes Docker support with a docker-compose file. You can build and run the entire solution using Docker:
 
 ```sh
@@ -66,9 +59,24 @@ after the command you can open the api documentation by URL
 http://localhost:1111/swagger/index.html
 https://localhost:7777/swagger/index.html
 ```
+### 4.API Documentation
+In order to use the endpoints of the tasks
+In order to use endpoints of tasks, you must first register and login 
+
+
+
 
 ### 5.API Documentation
 This project uses Swagger for API documentation. After running the project, you can view the API documentation at:
+![image](https://github.com/user-attachments/assets/a9a5eece-6e94-4769-9f85-9a2b52a5b545)
+
+Then come in
+![image](https://github.com/user-attachments/assets/677f9ffe-b01d-4fad-b99e-8835315d8078)
+![image](https://github.com/user-attachments/assets/2a5697ec-c812-449c-8494-dd6ad7c00c98)
+Then you can create tasks and edit
+
+
+
 
 ```sh
 https://localhost:5001/swagger/index.html
@@ -83,7 +91,11 @@ by default, sorts by the title column
 
 -  `PageNumber & PageSize`: needed for pagination
 
--  `SortBy`: You can sort in descending or ascending order 
+-  `SortBy`: You can sort in descending or ascending order
+
+
+
+
 
 
   
