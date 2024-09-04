@@ -40,7 +40,7 @@ Ensure you have a SQL Server instance running, either locally or using Docker:
 ```sh
 docker run --name postgres_container -e POSTGRES_USER=myuser -e POSTGRES_PASSWORD=mypassword -e POSTGRES_DB=mydatabase -p 5432:5432 -d postgres:latest
 ```
-Update the connection strings in appsettings.json in the LunaTask.Api project.
+Update the connection strings in `appsettings.json` in the LunaTask.Api project.
 
 
   
