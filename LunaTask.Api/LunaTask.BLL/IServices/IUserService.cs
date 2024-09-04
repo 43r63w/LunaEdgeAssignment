@@ -6,7 +6,7 @@ namespace LunaTask.BLL.IServices
 {
     public interface IUserService
     {
-        Task<ResponseDto> Register(UserCreateDto userCreateDto);
-        Task<ResponseDto> Login(UserLoginDto userLoginDto);
+        Task<ResponseDto> RegisterAsync(UserCreateDto userCreateDto);
+        Task<ResponseDto> LoginAsync(UserLoginDto userLoginDto);
     }
 }

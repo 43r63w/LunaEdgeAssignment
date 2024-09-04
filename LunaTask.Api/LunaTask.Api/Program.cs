@@ -9,7 +9,7 @@ namespace LunaTask.Api
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static  void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -23,10 +23,13 @@ namespace LunaTask.Api
             builder.Services.AddServices();
 
             builder.Services.AddDb(builder.Configuration);
-            builder.Services.AddGenericRepository();
+            builder.Services.AddRepository();
 
+            builder.Services.AddMapper();
             builder.Services.AddHttpContextAccessor();
-      
+           
+
+
             builder.Services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -37,8 +40,8 @@ namespace LunaTask.Api
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateLifetime = true,
-                    ValidateAudience = true,
-                    ValidateIssuer = true,
+                    ValidateAudience = false,
+                    ValidateIssuer = false,
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
                 };
@@ -54,9 +57,7 @@ namespace LunaTask.Api
             });
 
 
-         
             var app = builder.Build();
-
 
             if (app.Environment.IsDevelopment())
             {
@@ -64,6 +65,7 @@ namespace LunaTask.Api
                 app.UseSwaggerUI();
             }
 
+            app.Services.InitDb();
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

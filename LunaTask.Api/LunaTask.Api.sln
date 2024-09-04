@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunaTask.DAL", "LunaTask.DA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunaTask.BLL", "LunaTask.BLL\LunaTask.BLL.csproj", "{543ADD72-F49A-404B-B7CD-E92A4E6F20C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunaTask.XUnitTest", "LunaTask.XUnitTest\LunaTask.XUnitTest.csproj", "{9939C7CF-11DF-4714-BD1D-C50F189F7751}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunaTask.XUnitTest", "LunaTask.XUnitTest\LunaTask.XUnitTest.csproj", "{9939C7CF-11DF-4714-BD1D-C50F189F7751}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{58586BCC-6B55-4F1A-9670-F796BF798229}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9939C7CF-11DF-4714-BD1D-C50F189F7751}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9939C7CF-11DF-4714-BD1D-C50F189F7751}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9939C7CF-11DF-4714-BD1D-C50F189F7751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58586BCC-6B55-4F1A-9670-F796BF798229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58586BCC-6B55-4F1A-9670-F796BF798229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58586BCC-6B55-4F1A-9670-F796BF798229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58586BCC-6B55-4F1A-9670-F796BF798229}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

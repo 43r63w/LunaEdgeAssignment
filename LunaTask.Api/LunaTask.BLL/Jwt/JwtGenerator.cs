@@ -36,8 +36,6 @@ namespace LunaTask.BLL.Jwt
             var token = new JwtSecurityToken(
                 claims: claims,
                 signingCredentials: sign,
-                audience: _configuration["Jwt:Audience"],
-                issuer: _configuration["Jwt:Issuer"],
                 expires: DateTime.UtcNow.AddDays(1)
             );
 

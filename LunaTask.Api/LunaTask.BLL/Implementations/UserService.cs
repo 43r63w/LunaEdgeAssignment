@@ -4,23 +4,23 @@ using LunaTask.BLL.Hasher;
 using LunaTask.BLL.IServices;
 using LunaTask.BLL.Jwt.Interfaces;
 using LunaTask.DAL.Entities;
-using LunaTask.DAL.IGenericRepository.Interfaces;
+using LunaTask.DAL.GenericRepository.Interfaces;
 
 namespace LunaTask.BLL.Implementations
 {
     public class UserService : IUserService
     {
-        private readonly IGenericRepository<User> _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IJwtGenerator _jwtGenerator;
 
-        public UserService(IGenericRepository<User> userRepository,
+        public UserService(IUserRepository userRepository,
             IJwtGenerator jwtGenerator)
         {
             _userRepository = userRepository;
             _jwtGenerator = jwtGenerator;
         }
 
-        public async System.Threading.Tasks.Task<ResponseDto> Login(UserLoginDto userLoginDto)
+        public async System.Threading.Tasks.Task<ResponseDto> LoginAsync(UserLoginDto userLoginDto)
         {
 
 
@@ -46,7 +46,7 @@ namespace LunaTask.BLL.Implementations
 
         }
 
-        public async System.Threading.Tasks.Task<ResponseDto> Register(UserCreateDto userCreateDto)
+        public async System.Threading.Tasks.Task<ResponseDto> RegisterAsync(UserCreateDto userCreateDto)
         {
             if (string.IsNullOrWhiteSpace(userCreateDto.Email) |
                 string.IsNullOrWhiteSpace(userCreateDto.Username) |

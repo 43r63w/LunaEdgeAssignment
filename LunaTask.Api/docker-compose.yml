@@ -1,0 +1,26 @@
+services:
+  lunatask.api:
+    image: ${DOCKER_REGISTRY-}lunataskapi
+    build:
+      context: .
+      dockerfile: LunaTask.Api/Dockerfile
+  db:
+    image: postgres:latest
+    container_name: db
+    environment:
+     - POSTGRES_DB=LunaEdge
+     - POSTGRES_USER=postgres
+     - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+    volumes: 
+     - postgres-data:/var/lib/postgresql/data
+
+
+
+
+volumes:
+  postgres-data:    
+  
+
+  

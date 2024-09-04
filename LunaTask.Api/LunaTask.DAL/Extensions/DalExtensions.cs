@@ -1,4 +1,6 @@
 ﻿using LunaTask.DAL.ApplicationDbContext;
+using LunaTask.DAL.GenericRepository;
+using LunaTask.DAL.GenericRepository.Interfaces;
 using LunaTask.DAL.IGenericRepository;
 using LunaTask.DAL.IGenericRepository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -18,9 +20,22 @@ namespace LunaTask.DAL.Extensions
             );
         }
 
-        public static IServiceCollection AddGenericRepository(this IServiceCollection services)
+        public static IServiceCollection AddRepository(this IServiceCollection services)
         {
-            return services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+  
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ITaskRepository, TaskRepository>();
+
+            return services;
         }
+
+        public static void InitDb(this IServiceProvider service)
+        {
+            using var scope = service.CreateScope();
+            using var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+            dbContext.Database.EnsureCreated();
+        }
+
     }
 }
