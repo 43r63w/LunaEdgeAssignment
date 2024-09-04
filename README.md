@@ -49,4 +49,20 @@ You can now run the API:
 dotnet run --project LunaTask.Api
 ```
 The API will be available at `https://localhost:5001`
+
+### 4.Docker Support
+The solution includes Docker support with a docker-compose file. You can build and run the entire solution using Docker:
+
+```sh
+docker-compose up --build
+```
+This will set up the API and any other dependencies defined in the `docker-compose` file.
+
+### 5.API Documentation
+This project uses Swagger for API documentation. After running the project, you can view the API documentation at:
+
+```sh
+https://localhost:5001/swagger/index.html
+```
+
   
