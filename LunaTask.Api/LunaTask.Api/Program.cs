@@ -57,8 +57,6 @@ namespace LunaTask.Api
             });
 
 
-
-
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())
@@ -68,7 +66,6 @@ namespace LunaTask.Api
             }
 
       
-
             app.Services.InitDb();
             app.UseHttpsRedirection();
 

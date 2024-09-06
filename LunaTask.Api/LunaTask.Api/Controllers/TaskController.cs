@@ -3,6 +3,7 @@ using LunaTask.BLL.Dtos.Task;
 using LunaTask.BLL.IServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.InteropServices.Marshalling;
 
 namespace LunaTask.Api.Controllers
 {
@@ -19,12 +20,15 @@ namespace LunaTask.Api.Controllers
             _taskService = taskService;
         }
 
+
+
         [HttpGet("/tasks")]
         public async Task<ActionResult<List<TaskDto>>> GetAll([FromQuery]GetTaskRequest getTaskRequest)
         {
-            var tasks = await _taskService.GetTasksAsync(getTaskRequest);
+            var tasks = await _taskService.GetTasksAsync(getTaskRequest);        
             return Ok(tasks);
         }
+
 
         [HttpGet("/task/{id}")]
         public async Task<ActionResult> Get(string id)
