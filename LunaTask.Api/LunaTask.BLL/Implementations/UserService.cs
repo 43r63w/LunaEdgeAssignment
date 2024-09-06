@@ -31,14 +31,21 @@ namespace LunaTask.BLL.Implementations
                 return new ResponseDto(false, "Email,username and password must be filled");
             }
 
+
             var userFromDb = await _userRepository.GetAsync(e => e.Email == userLoginDto.Email);
 
             if (userFromDb == null)
                 return new ResponseDto(false, "User not found");
 
-            var result = _jwtGenerator.GenerateToken(userFromDb);
+            var isPasswordValid = HashPassword.CheckPasswordHash(userLoginDto.Password, userFromDb.PasswordHash);
 
-            if (result == null)
+            string result = "";
+
+            if (isPasswordValid)
+                result = _jwtGenerator.GenerateToken(userFromDb);
+
+
+            if (string.IsNullOrWhiteSpace(result))
                 return new ResponseDto(false, "Something wrong");
 
             return new ResponseDto(true, $"Successfully login, Id:{userFromDb.Id}", result);
