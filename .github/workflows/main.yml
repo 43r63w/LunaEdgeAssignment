@@ -23,13 +23,13 @@ jobs:
 
      
     - name: Restore
-      run: dotnet restore LunaEdgeAssignment/LunaTask.Api/LunaTask.Api.sln
+      run: dotnet restore ./LunaTask.Api.sln
       
     - name: Build
-      run: dotnet build LunaEdgeAssignment/LunaTask.Api/LunaTask.Api.sln --no-restore
+      run: dotnet build ./LunaTask.Api.sln --no-restore
 
     - name: Test
-      run: dotnet test LunaEdgeAssignment/LunaTask.Api/LunaTask.Api.sln
+      run: dotnet test ./LunaTask.Api.sln
       
 
       
