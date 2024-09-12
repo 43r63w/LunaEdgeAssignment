@@ -10,7 +10,7 @@ namespace LunaTask.BLL.Hasher
     {
         public static string Hash(string password)
             => BCrypt.Net.BCrypt.EnhancedHashPassword(password);
-
+        
         public static bool CheckPasswordHash(string textPassword, string hashPassword)
             => BCrypt.Net.BCrypt.EnhancedVerify(textPassword, hashPassword);
     }

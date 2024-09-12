@@ -8,5 +8,6 @@ namespace LunaTask.BLL.IServices
     {
         Task<ResponseDto> RegisterAsync(UserCreateDto userCreateDto);
         Task<ResponseDto> LoginAsync(UserLoginDto userLoginDto);
+        
     }
 }

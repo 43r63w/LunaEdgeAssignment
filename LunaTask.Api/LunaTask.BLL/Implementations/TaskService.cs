@@ -81,7 +81,7 @@ namespace LunaTask.BLL.Implementations
                 throw new InvalidOperationException("Task not found in the database.");
           
 
-            var taskDto = new TaskDto(
+            return new TaskDto(
                 getTaskFromDb.Id.ToString(),
                 getTaskFromDb.Title,
                 getTaskFromDb.Description,
@@ -90,9 +90,7 @@ namespace LunaTask.BLL.Implementations
                 getTaskFromDb.Priority,
                 getTaskFromDb.UserId.ToString()
             );
-
-            return taskDto;
-
+            
         }
 
         public async Task<ResponseDto> UpdateTaskAsync(string taskId, TaskUpdateDto taskUpdateDto)
