@@ -12,7 +12,6 @@ namespace LunaTask.BLL.Extensions
         {
             return services.AddScoped<IJwtGenerator, JwtGenerator>();
         }
-
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();

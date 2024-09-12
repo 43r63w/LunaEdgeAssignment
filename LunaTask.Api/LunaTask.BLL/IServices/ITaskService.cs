@@ -11,7 +11,6 @@ namespace LunaTask.BLL.IServices
         Task<TaskDto> GetTaskByIdAsync(string taskId);
         Task<ResponseDto> CreateTaskAsync(TaskCreateDto taskCreateDto);
         Task<ResponseDto> UpdateTaskAsync(string taskId,TaskUpdateDto taskUpdateDto);
-
         Task<ResponseDto> DeleteTaskAsync(string taskId);
 
     }

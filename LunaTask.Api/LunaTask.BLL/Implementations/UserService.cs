@@ -30,8 +30,7 @@ namespace LunaTask.BLL.Implementations
             {
                 return new ResponseDto(false, "Email,username and password must be filled");
             }
-
-
+            
             var userFromDb = await _userRepository.GetAsync(e => e.Email == userLoginDto.Email);
 
             if (userFromDb == null)
@@ -43,14 +42,10 @@ namespace LunaTask.BLL.Implementations
 
             if (isPasswordValid)
                 result = _jwtGenerator.GenerateToken(userFromDb);
-
-
-            if (string.IsNullOrWhiteSpace(result))
-                return new ResponseDto(false, "Something wrong");
-
-            return new ResponseDto(true, $"Successfully login, Id:{userFromDb.Id}", result);
-
-
+            
+            return string.IsNullOrWhiteSpace(result) 
+                ? new ResponseDto(false, "Something wrong") 
+                : new ResponseDto(true, $"Successfully login, Id:{userFromDb.Id}", result);
         }
 
         public async System.Threading.Tasks.Task<ResponseDto> RegisterAsync(UserCreateDto userCreateDto)
@@ -76,10 +71,9 @@ namespace LunaTask.BLL.Implementations
 
             var result = await _userRepository.GetAsync(e => e.Email == userCreateDto.Email);
 
-            if (result == null)
-                return new ResponseDto(false, "Something wrong");
-
-            return new ResponseDto(true, "Successfully register");
+            return result == null 
+                ? new ResponseDto(false, "Something wrong") 
+                : new ResponseDto(true, "Successfully register");
         }
     }
 }

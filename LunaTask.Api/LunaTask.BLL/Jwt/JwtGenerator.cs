@@ -18,8 +18,7 @@ namespace LunaTask.BLL.Jwt
         {
             _configuration = configuration;
         }
-
-
+        
         public string GenerateToken(User user)
         {
             var claims = new List<Claim>
